@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.34031.109
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{480CAEE0-B28C-49AF-BEBE-554E47C29B3C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Koszalka.Domain", "Koszalka.Domain\Koszalka.Domain.csproj", "{5B487150-2767-4503-8E0D-A2F343907EFA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Koszalka.Application", "Koszalka.Application\Koszalka.Application.csproj", "{937850F4-6978-4284-B2AF-0AA475CEDE0B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1120CF3B-5779-4FAD-86AE-2A357A49B5C1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Koszalka.Persistence", "Koszalka.Persistence\Koszalka.Persistence.csproj", "{02C75A35-154D-4DF7-8B36-B7403A566A36}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A556CB79-78A4-4C61-B39B-A5865B549232}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koszalka.WebAPI", "Koszalka.WebAPI\Koszalka.WebAPI.csproj", "{1E24F675-CBA1-4FE0-B22A-BF8DBF2200F9}"
 EndProject
