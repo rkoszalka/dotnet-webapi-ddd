@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Koszalka.Application.Features.ToDoFeatures.GetAllTodo
 {
-    public sealed class GetAllTodoHandler : IRequestHandler<GetAllToDoRequest, List<GetAllUserResponse>>
+    public sealed class GetAllTodoHandler : IRequestHandler<GetAllToDoRequest, List<GetAllToDoResponse>>
     {
         private readonly IToDoRepository _userRepository;
         private readonly IMapper _mapper;
@@ -15,10 +15,10 @@ namespace Koszalka.Application.Features.ToDoFeatures.GetAllTodo
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllUserResponse>> Handle(GetAllToDoRequest request, CancellationToken cancellationToken)
+        public async Task<List<GetAllToDoResponse>> Handle(GetAllToDoRequest request, CancellationToken cancellationToken)
         {
             var users = await _userRepository.GetAll(cancellationToken);
-            return _mapper.Map<List<GetAllUserResponse>>(users);
+            return _mapper.Map<List<GetAllToDoResponse>>(users);
         }
     }
 }

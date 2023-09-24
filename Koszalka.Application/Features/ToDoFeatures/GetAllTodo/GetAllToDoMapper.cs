@@ -12,7 +12,7 @@ namespace Koszalka.Application.Features.ToDoFeatures.GetAllTodo
     {
         public GetAllToDoMapper()
         {
-            CreateMap<ToDo, GetAllUserResponse>();
+            CreateMap<ToDo, GetAllToDoResponse>();
         }
     }
 }

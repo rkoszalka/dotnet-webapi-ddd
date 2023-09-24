@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace Koszalka.Application.Features.ToDoFeatures.GetAllTodo
 {
-    public sealed record GetAllToDoRequest : IRequest<List<GetAllUserResponse>>;
+    public sealed record GetAllToDoRequest : IRequest<List<GetAllToDoResponse>>;
 }
