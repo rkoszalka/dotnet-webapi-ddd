@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application;
-using CleanArchitecture.Persistence;
-using CleanArchitecture.Persistence.Context;
-using CleanArchitecture.WebAPI.Extensions;
+﻿using Koszalka.Application;
+using Koszalka.Persistence;
+using Koszalka.Persistence.Context;
+using Koszalka.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
