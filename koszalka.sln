@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koszalka.Domain", "Koszalka
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koszalka.Application", "Koszalka.Application\Koszalka.Application.csproj", "{937850F4-6978-4284-B2AF-0AA475CEDE0B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1120CF3B-5779-4FAD-86AE-2A357A49B5C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koszalka.Persistence", "Koszalka.Persistence\Koszalka.Persistence.csproj", "{02C75A35-154D-4DF7-8B36-B7403A566A36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{937850F4-6978-4284-B2AF-0AA475CEDE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{937850F4-6978-4284-B2AF-0AA475CEDE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{937850F4-6978-4284-B2AF-0AA475CEDE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C75A35-154D-4DF7-8B36-B7403A566A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C75A35-154D-4DF7-8B36-B7403A566A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C75A35-154D-4DF7-8B36-B7403A566A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C75A35-154D-4DF7-8B36-B7403A566A36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5B487150-2767-4503-8E0D-A2F343907EFA} = {480CAEE0-B28C-49AF-BEBE-554E47C29B3C}
 		{937850F4-6978-4284-B2AF-0AA475CEDE0B} = {480CAEE0-B28C-49AF-BEBE-554E47C29B3C}
+		{02C75A35-154D-4DF7-8B36-B7403A566A36} = {1120CF3B-5779-4FAD-86AE-2A357A49B5C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C3DF6F0-CCE8-4DF8-A451-33E91A4434DD}
