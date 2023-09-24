@@ -1,6 +1,6 @@
 ﻿using Koszalka.Application;
-using Koszalka.Persistence;
 using Koszalka.Persistence.Context;
+using Koszalka.Persistence;
 using Koszalka.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
