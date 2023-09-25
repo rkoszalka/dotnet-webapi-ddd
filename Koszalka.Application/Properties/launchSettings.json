@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Koszalka.Application": {
+      "commandName": "Project"
+    },
+    "Perfil 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\rlkoszalka\\Desktop\\koszalka\\Koszalka.WebAPI\\Program.cs",
+      "workingDirectory": "C:\\Users\\rlkoszalka\\Desktop\\koszalka\\Koszalka.WebAPI"
+    }
+  }
+}

@@ -16,9 +16,9 @@ namespace Koszalka.Persistence.Repositories
         {
         }
 
-        public Task<ToDo> GetByOwner(string email, CancellationToken cancellationToken)
+        public Task<ToDo> GetByOwner(string owner, CancellationToken cancellationToken)
         {
-            return Context.Users.FirstOrDefaultAsync(x => x.Owner == email, cancellationToken);
+            return Context.Users.FirstOrDefaultAsync(x => x.Owner == owner, cancellationToken);
         }
     }
 }
