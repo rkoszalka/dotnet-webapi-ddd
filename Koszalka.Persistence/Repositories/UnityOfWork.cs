@@ -23,11 +23,11 @@ namespace Koszalka.Persistence.Repositories
             return _context.SaveChangesAsync(cancellationToken);
         }
 
-        public void Delete(ToDo todo)
+        public int Delete(ToDo todo)
         {
             _context.Attach(todo);
             _context.Remove(todo);
-            _context.SaveChanges();
+            return _context.SaveChanges();
         }
     }
 }

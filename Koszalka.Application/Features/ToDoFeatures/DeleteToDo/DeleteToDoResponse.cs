@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
 {
-    public sealed record DeleteToDoResponse
+    public class DeleteToDoResponse
     {
-        public  string DeleteStatus { get; set; }
+        public string DeleteStatus { get; set; }
 
-        public DeleteToDoResponse() 
+        public DeleteToDoResponse(string status) 
         {
-            this.DeleteStatus = "deleted";
+            this.DeleteStatus = status;
         }
         
    }

@@ -12,6 +12,6 @@ namespace Koszalka.Application.Repositories
     {
         Task Save(CancellationToken cancellationToken);
 
-        void Delete(ToDo todo);
+        int Delete(ToDo todo);
     }
 }
