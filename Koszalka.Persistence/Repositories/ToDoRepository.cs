@@ -1,4 +1,5 @@
-﻿using Koszalka.Application.Repositories;
+﻿using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByOwner;
+using Koszalka.Application.Repositories;
 using Koszalka.Domain.Entities;
 using Koszalka.Persistence.Context;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,8 +18,9 @@ namespace Koszalka.Persistence.Repositories
         {
         }
 
-        public IQueryable<ToDo> GetByOwner(string owner)
+        public IQueryable<ToDo> GetByOwner(GetAllToDoByOwnerRequest getAllToDoByOwnerRequest, CancellationToken cancellation, string owner)
         {
+            
             return Context.Users.Where(p => p.Owner == owner);
 
         }
