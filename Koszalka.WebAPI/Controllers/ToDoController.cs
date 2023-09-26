@@ -24,6 +24,7 @@ namespace Koszalka.WebAPI.Controllers
             _mediator = mediator;
         }
 
+
         [HttpGet]
         public async Task<ActionResult<List<GetAllToDoResponse>>> GetAll(CancellationToken cancellationToken)
         {
