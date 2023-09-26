@@ -1,6 +1,7 @@
 ﻿using Koszalka.Application.Repositories;
 using Koszalka.Domain.Entities;
 using Koszalka.Persistence.Context;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,10 @@ namespace Koszalka.Persistence.Repositories
         {
         }
 
-        public Task<ToDo> GetByOwner(string owner, CancellationToken cancellationToken)
+        public IQueryable<ToDo> GetByOwner(string owner, CancellationToken cancellationToken)
         {
-            return Context.Users.FirstOrDefaultAsync(x => x.Owner == owner, cancellationToken);
+            return Context.Users.Where(p => p.Owner == owner);
+
         }
     }
 }

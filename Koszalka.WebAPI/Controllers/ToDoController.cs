@@ -10,18 +10,22 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
+using Koszalka.Domain.Entities;
+using Koszalka.Persistence.Repositories;
 
 namespace Koszalka.WebAPI.Controllers
 {
     [ApiController]
     [Route("todo")]
-    public class UserController : ControllerBase
+    public class ToDoController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ToDoRepository _toDoRepository;
 
-        public UserController(IMediator mediator)
+        public ToDoController(IMediator mediator, ToDoRepository toDoRepository)
         {
             _mediator = mediator;
+            _toDoRepository = toDoRepository;
         }
 
 
@@ -30,6 +34,13 @@ namespace Koszalka.WebAPI.Controllers
         {
             var response = await _mediator.Send(new GetAllToDoRequest(), cancellationToken);
             return Ok(response);
+        }
+
+        [HttpGet("byOwner")]
+        public async Task<IQueryable<ToDo>> GetByOwner([FromQuery] string owner, CancellationToken cancellationToken)
+        {
+            var response =  _toDoRepository.GetByOwner(owner, cancellationToken);
+            return response;
         }
 
         [HttpPost]
