@@ -9,7 +9,7 @@ namespace Koszalka.Application.Repositories
 {
     public interface IToDoRepository : IBaseRepository<ToDo>
     {
-        IQueryable<ToDo> GetByOwner(string owner, CancellationToken cancellationToken);
+        IQueryable<ToDo> GetByOwner(string owner);
 
 
     }
