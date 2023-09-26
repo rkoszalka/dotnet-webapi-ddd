@@ -26,19 +26,21 @@ namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
 
         public async Task<DeleteToDoResponse> Handle(DeleteToDoRequest request, CancellationToken cancellationToken)
         {
+            var toDo = _mapper.Map<ToDo>(request);
+
             try
             {
-                var toDo = _mapper.Map<ToDo>(request);
                 _toDoRepository.Delete(toDo);
-                 _unitOfWork.Delete(toDo);
-                return _mapper.Map<DeleteToDoResponse>(toDo);
+                _unitOfWork.Delete(toDo);
+                return new DeleteToDoResponse("[ " + toDo.Id + " ]" + " deleted with success");
+                
             } catch(Exception ex) 
             {
                 Console.WriteLine(ex.ToString());
             }
 
-            return null;
-            
+            return new DeleteToDoResponse("[ " + toDo.Id + " ]" + " not found or error while deleting");
+
         }
     }
 
