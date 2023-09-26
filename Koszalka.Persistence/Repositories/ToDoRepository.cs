@@ -17,7 +17,7 @@ namespace Koszalka.Persistence.Repositories
         {
         }
 
-        public IQueryable<ToDo> GetByOwner(string owner, CancellationToken cancellationToken)
+        public IQueryable<ToDo> GetByOwner(string owner)
         {
             return Context.Users.Where(p => p.Owner == owner);
 
