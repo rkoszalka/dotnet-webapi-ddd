@@ -29,5 +29,11 @@ namespace Koszalka.Persistence.Repositories
             _context.Remove(todo);
             return _context.SaveChanges();
         }
+
+        public int Update(ToDo toDo)
+        {
+            _context.Update(toDo);
+            return _context.SaveChanges();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
+﻿using Koszalka.Application.Features.ToDoFeatures.PutToDoTask;
 using Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse;
 using Koszalka.Application.Features.ToDoFeatures.GetAllTodo;
 using MediatR;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
 
 namespace Koszalka.WebAPI.Controllers
 {
@@ -40,6 +41,14 @@ namespace Koszalka.WebAPI.Controllers
 
         [HttpDelete]
         public async Task<ActionResult<DeleteToDoResponse>> Delete(DeleteToDoRequest request,
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<PutToDoResponse>> Put(PutToDoRequest request,
             CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
