@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
 
 namespace Koszalka.WebAPI.Controllers
 {
@@ -31,7 +32,7 @@ namespace Koszalka.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PutToDoResponse>> Create(PutToDoRequest request,
+        public async Task<ActionResult<CreateTodoResponse>> Create(CreateTodoRequest request,
             CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);

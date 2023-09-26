@@ -15,6 +15,7 @@ namespace Koszalka.Application.Features.ToDoFeatures.PutToDoTask
         {
             CreateMap<PutToDoRequest, ToDo>();
             CreateMap<ToDo, PutToDoResponse>();
+            CreateMap<ToDo, PutToDoRequest>();
             CreateMap< PutToDoResponse, ToDo > ();
         }
     }

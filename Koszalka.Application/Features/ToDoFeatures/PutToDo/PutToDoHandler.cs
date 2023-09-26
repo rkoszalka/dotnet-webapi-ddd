@@ -27,10 +27,20 @@ namespace Koszalka.Application.Features.ToDoFeatures.PutToDoTask
         public async Task<PutToDoResponse> Handle(PutToDoRequest request, CancellationToken cancellationToken)
         {
             var toDo = _mapper.Map<ToDo>(request);
-            _toDoRepository.Update(toDo);
-            var updatedToDo = _unitOfWork.Update(toDo);
+            try
+            {
+                _toDoRepository.Update(toDo);
+                var updatedToDo = _unitOfWork.Update(toDo);
 
-            return _mapper.Map<PutToDoResponse>(updatedToDo);
+                return new PutToDoResponse("[ " + toDo.Id + " ]" + " updated with success");
+            } 
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString);
+            }
+
+            return new PutToDoResponse("[ " + toDo.Id + " ]" + " not found or error while updating");
+
         }
     }
 
