@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
 using Koszalka.Domain.Entities;
 using Koszalka.Persistence.Repositories;
+using Koszalka.Application.Features.ToDoFeatures.GetAllTodoByOwner;
 
 namespace Koszalka.WebAPI.Controllers
 {
@@ -37,10 +38,12 @@ namespace Koszalka.WebAPI.Controllers
         }
 
         [HttpGet("byOwner")]
-        public async Task<IQueryable<ToDo>> GetByOwner([FromQuery] string owner, CancellationToken cancellationToken)
+        public async Task<IQueryable<ToDo>> GetByOwner(GetAllToDoByOwnerRequest request,
+            CancellationToken cancellationToken)
         {
-            var response =  _toDoRepository.GetByOwner(owner, cancellationToken);
-            return response;
+            var response = await _mediator.Send(request, cancellationToken);
+            return (IQueryable<ToDo>)Ok(response);
+
         }
 
         [HttpPost]
