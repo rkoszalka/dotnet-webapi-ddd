@@ -1,5 +1,7 @@
 ﻿using Koszalka.Application.Repositories;
+using Koszalka.Domain.Entities;
 using Koszalka.Persistence.Context;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,13 @@ namespace Koszalka.Persistence.Repositories
         public Task Save(CancellationToken cancellationToken)
         {
             return _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public void Delete(ToDo todo)
+        {
+            _context.Attach(todo);
+            _context.Remove(todo);
+            _context.SaveChanges();
         }
     }
 }

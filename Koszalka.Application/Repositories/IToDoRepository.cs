@@ -10,5 +10,7 @@ namespace Koszalka.Application.Repositories
     public interface IToDoRepository : IBaseRepository<ToDo>
     {
         Task<ToDo> GetByOwner(string owner, CancellationToken cancellationToken);
+
+
     }
 }

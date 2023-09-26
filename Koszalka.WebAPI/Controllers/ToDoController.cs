@@ -1,4 +1,5 @@
 ﻿using Koszalka.Application.Features.ToDoFeatures.CreateToDoTask;
+using Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse;
 using Koszalka.Application.Features.ToDoFeatures.GetAllTodo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,14 @@ namespace Koszalka.WebAPI.Controllers
 
         [HttpPost]
         public async Task<ActionResult<CreateTodoResponse>> Create(CreateTodoRequest request,
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<DeleteToDoResponse>> Delete(DeleteToDoRequest request,
             CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);

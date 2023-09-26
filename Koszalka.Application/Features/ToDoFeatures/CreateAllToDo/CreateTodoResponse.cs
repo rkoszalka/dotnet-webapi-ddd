@@ -11,5 +11,8 @@ namespace Koszalka.Application.Features.ToDoFeatures.CreateToDoTask
         public Guid Id { get; set; }
         public string Task { get; set; }
         public string Owner { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateUpdated { get; set; }
+        public DateTimeOffset? DateDeleted { get; set; }
     }
 }
