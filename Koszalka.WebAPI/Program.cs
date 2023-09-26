@@ -2,6 +2,7 @@
 using Koszalka.Persistence.Context;
 using Koszalka.Persistence;
 using Koszalka.WebAPI.Extensions;
+using Koszalka.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.ConfigureCorsPolicy();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<ToDoRepository>();
 
 var app = builder.Build();
 
