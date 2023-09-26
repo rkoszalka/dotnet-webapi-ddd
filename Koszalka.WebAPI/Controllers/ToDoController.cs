@@ -38,15 +38,16 @@ namespace Koszalka.WebAPI.Controllers
         }
 
         // @todo: fix this 
+        /*
         [HttpGet("byOwner")]
-        public async Task<IQueryable<ToDo>> GetByOwner([FromQuery] string owner, CancellationToken cancellationToken)
+        public IQueryable<ToDo> GetByOwner([FromQuery] string owner, CancellationToken cancellationToken)
         {
             // var response = await _mediator.Send(request, cancellationToken);
             var response = _toDoRepository.GetByOwner(owner, cancellationToken);
             return (IQueryable<ToDo>)Ok(response);
 
         }
-
+        */
         [HttpPost]
         public async Task<ActionResult<CreateTodoResponse>> Create(CreateTodoRequest request,
             CancellationToken cancellationToken)
