@@ -1,4 +1,5 @@
-﻿using Koszalka.Domain.Entities;
+﻿using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByOwner;
+using Koszalka.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Koszalka.Application.Repositories
 {
     public interface IToDoRepository : IBaseRepository<ToDo>
     {
-        IQueryable<ToDo> GetByOwner(string owner);
+        IQueryable<ToDo> GetByOwner(GetAllToDoByOwnerRequest getAllToDoByOwnerRequest, CancellationToken cancellationToken, string owner);
 
 
     }
