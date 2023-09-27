@@ -34,9 +34,9 @@ namespace Koszalka.WebAPI.Controllers
             var response = await _mediator.Send(new GetAllToDoRequest(), cancellationToken);
             return Ok(response);
         }
-
-        [HttpPost("byOwner/")]
-        public async Task<ActionResult<IQueryable<ToDo>>> GetByOwner(GetAllToDoByOwnerRequest getAllToDoByOwnerRequest, CancellationToken cancellationToken, [FromQuery] string owner)
+        
+        [HttpGet("byOwner/")]
+        public async Task<ActionResult<IQueryable<ToDo>>> GetByOwner(CancellationToken cancellationToken, [FromQuery] string owner)
         {
             var request = new GetAllToDoByOwnerRequest(owner);
             var response = await _mediator.Send(request, cancellationToken);
