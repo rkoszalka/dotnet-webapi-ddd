@@ -1,4 +1,5 @@
 ﻿using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByOwner;
+using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByTask;
 using Koszalka.Application.Repositories;
 using Koszalka.Domain.Entities;
 using Koszalka.Persistence.Context;
@@ -22,6 +23,13 @@ namespace Koszalka.Persistence.Repositories
         {
             
             return Context.Users.Where(p => p.Owner == owner);
+
+        }
+
+        public IQueryable<ToDo> GetByTask(GetAllToDoByTaskRequest getAllToDoByTaskRequest, CancellationToken cancellation, string task)
+        {
+
+            return Context.Users.Where(p => p.Task == task);
 
         }
     }

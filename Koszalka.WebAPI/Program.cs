@@ -13,9 +13,9 @@ builder.Services.ConfigureApiBehavior();
 builder.Services.ConfigureCorsPolicy();
 
 builder.Services.AddControllers();
+builder.Services.AddTransient<ToDoRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<ToDoRepository>();
 
 var app = builder.Build();
 
