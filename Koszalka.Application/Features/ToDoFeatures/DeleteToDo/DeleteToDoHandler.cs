@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using Koszalka.Domain.Entities;
+using Koszalka.Application.Features.ToDoFeatures.DeleteToDoReq;
 
-
-namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
+namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDo
 {
     public sealed class DeleteToDoHandler : IRequestHandler<DeleteToDoRequest, DeleteToDoResponse>
     {
@@ -31,10 +31,11 @@ namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
             try
             {
                 _toDoRepository.Delete(toDo);
-                await _unitOfWork.Save(cancellationToken);
+                 _unitOfWork.Delete(toDo);
                 return new DeleteToDoResponse("[ " + toDo.Id + " ]" + " deleted with success");
-                
-            } catch(Exception ex) 
+
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }

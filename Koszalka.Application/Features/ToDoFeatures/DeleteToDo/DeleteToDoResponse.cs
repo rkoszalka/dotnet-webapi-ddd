@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
+namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoReq
 {
     public class DeleteToDoResponse
     {

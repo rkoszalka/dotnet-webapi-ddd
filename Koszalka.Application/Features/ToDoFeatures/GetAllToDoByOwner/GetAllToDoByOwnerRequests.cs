@@ -1,4 +1,5 @@
 ﻿using Koszalka.Application.Features.ToDoFeatures.GetAllTodo;
+using Koszalka.Application.Features.ToDoResponse;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Koszalka.Application.Features.ToDoFeatures.GetAllToDoByOwner
 {
-    public sealed record GetAllToDoByOwnerRequest : IRequest<List<GetAllToDoByOwnerResponses>>
+    public sealed record GetAllToDoByOwnerRequest : IRequest<List<RequestResponse>>
     {
         public  string Owner { get; set; }
 
