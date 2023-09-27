@@ -31,7 +31,7 @@ namespace Koszalka.Application.Features.ToDoFeatures.DeleteToDoResponse
             try
             {
                 _toDoRepository.Delete(toDo);
-                _unitOfWork.Delete(toDo);
+                await _unitOfWork.Save(cancellationToken);
                 return new DeleteToDoResponse("[ " + toDo.Id + " ]" + " deleted with success");
                 
             } catch(Exception ex) 
