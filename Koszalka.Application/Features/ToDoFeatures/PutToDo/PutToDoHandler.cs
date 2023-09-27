@@ -30,7 +30,7 @@ namespace Koszalka.Application.Features.ToDoFeatures.PutToDoTask
             try
             {
                 _toDoRepository.Update(toDo);
-                var updatedToDo = _unitOfWork.Update(toDo);
+                await _unitOfWork.Save(cancellationToken);
 
                 return new PutToDoResponse("[ " + toDo.Id + " ]" + " updated with success");
             } 
