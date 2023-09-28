@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Koszalka.WebAPI.Controllers
 {
     [ApiController]
-    [Route("test")]
+    [Route("toDo")]
     public class ToDoController : Controller
     {
         private readonly IMediator _mediator;

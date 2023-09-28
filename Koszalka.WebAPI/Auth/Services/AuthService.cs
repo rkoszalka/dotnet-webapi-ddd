@@ -1,12 +1,13 @@
 ﻿
-    using System.Security.Claims;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Koszalka.WebAPI.Auth.Koszalka.WebAPI.Auth;
+using Koszalka.WebAPI.Auth.Models;
 
-namespace Koszalka.WebAPI.Auth
+namespace Koszalka.WebAPI.Auth.Services
 {
     public class AuthService : IAuthService
     {
@@ -15,8 +16,8 @@ namespace Koszalka.WebAPI.Auth
         private readonly IConfiguration _configuration;
         public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
-            this._userManager = userManager;
-            this._roleManager = roleManager;
+            _userManager = userManager;
+            _roleManager = roleManager;
             _configuration = configuration;
 
         }
@@ -24,7 +25,10 @@ namespace Koszalka.WebAPI.Auth
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
+            {
                 return (0, "User already exists");
+            }
+                
 
             ApplicationUser user = new()
             {
@@ -36,13 +40,22 @@ namespace Koszalka.WebAPI.Auth
             };
             var createUserResult = await _userManager.CreateAsync(user, model.Password);
             if (!createUserResult.Succeeded)
+            {
                 return (0, "{Failed : PasswordRequiresNonAlphanumeric,PasswordRequiresDigit,PasswordRequiresUpper}");
+            }
+                
 
             if (!await _roleManager.RoleExistsAsync(role))
+            {
                 await _roleManager.CreateAsync(new IdentityRole(role));
+            }
+                
 
             if (await _roleManager.RoleExistsAsync(role))
+            {
                 await _userManager.AddToRoleAsync(user, role);
+            }
+                
 
             return (1, "User created successfully!");
         }
@@ -73,12 +86,10 @@ namespace Koszalka.WebAPI.Auth
         private string GenerateToken(IEnumerable<Claim> claims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTKey:Secret"]));
-            var _TokenExpiryTimeInHour = Convert.ToInt64(_configuration["JWTKey:TokenExpiryTimeInHour"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Issuer = _configuration["JWTKey:ValidIssuer"],
                 Audience = _configuration["JWTKey:ValidAudience"],
-                //Expires = DateTime.UtcNow.AddHours(_TokenExpiryTimeInHour),
                 Expires = DateTime.UtcNow.AddMinutes(1),
                 SigningCredentials = new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256),
                 Subject = new ClaimsIdentity(claims)

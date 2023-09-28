@@ -1,4 +1,6 @@
-﻿namespace Koszalka.WebAPI.Auth
+﻿using Koszalka.WebAPI.Auth.Models;
+
+namespace Koszalka.WebAPI.Auth
 {
     namespace Koszalka.WebAPI.Auth
     {
