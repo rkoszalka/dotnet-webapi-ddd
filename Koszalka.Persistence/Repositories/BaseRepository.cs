@@ -12,9 +12,9 @@ namespace Koszalka.Persistence.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        protected readonly DataContext Context;
+        protected readonly ApplicationDbContext Context;
 
-        public BaseRepository(DataContext context)
+        public BaseRepository(ApplicationDbContext context)
         {
             Context = context;
         }
