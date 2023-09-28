@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Koszalka.WebAPI.Auth
+namespace Koszalka.WebAPI.Auth.Models
 {
     public class RegistrationModel
     {

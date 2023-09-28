@@ -1,5 +1,5 @@
-﻿using Koszalka.WebAPI.Auth;
-using Koszalka.WebAPI.Auth.Koszalka.WebAPI.Auth;
+﻿using Koszalka.WebAPI.Auth.Koszalka.WebAPI.Auth;
+using Koszalka.WebAPI.Auth.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Koszalka.WebAPI.Controllers
@@ -25,10 +25,16 @@ namespace Koszalka.WebAPI.Controllers
             try
             {
                 if (!ModelState.IsValid)
+                {
                     return BadRequest("Invalid payload");
+                }
+                    
                 var (status, message) = await _authService.Login(model);
                 if (status == 0)
+                {
                     return BadRequest(message);
+                }
+                    
                 return Ok(message);
             }
             catch (Exception ex)
