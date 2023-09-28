@@ -12,9 +12,9 @@ namespace Koszalka.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DataContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public UnitOfWork(DataContext context)
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }

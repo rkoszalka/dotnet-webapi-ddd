@@ -15,21 +15,21 @@ namespace Koszalka.Persistence.Repositories
 {
     public class ToDoRepository : BaseRepository<ToDo>, IToDoRepository
     {
-        public ToDoRepository(DataContext context) : base(context)
+        public ToDoRepository(ApplicationDbContext context) : base(context)
         {
         }
 
         public IQueryable<ToDo> GetByOwner(GetAllToDoByOwnerRequest getAllToDoByOwnerRequest, CancellationToken cancellation, string owner)
         {
             
-            return Context.Users.Where(p => p.Owner == owner);
+            return Context.ToDo.Where(p => p.Owner == owner);
 
         }
 
         public IQueryable<ToDo> GetByTask(GetAllToDoByTaskRequest getAllToDoByTaskRequest, CancellationToken cancellation, string task)
         {
 
-            return Context.Users.Where(p => p.Task == task);
+            return Context.ToDo.Where(p => p.Task == task);
 
         }
     }

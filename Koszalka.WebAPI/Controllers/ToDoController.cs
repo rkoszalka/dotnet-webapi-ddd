@@ -15,12 +15,13 @@ using Koszalka.Persistence.Repositories;
 using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByOwner;
 using Koszalka.Application.Features.ToDoFeatures.GetAllToDoByTask;
 using Koszalka.Application.Features.ToDoResponse;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Koszalka.WebAPI.Controllers
 {
     [ApiController]
     [Route("test")]
-    public class ToDoController : ControllerBase
+    public class ToDoController : Controller
     {
         private readonly IMediator _mediator;
 
@@ -62,6 +63,7 @@ namespace Koszalka.WebAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<RequestResponse>> Delete(DeleteToDoRequest request,
             CancellationToken cancellationToken)
         {
