@@ -1,6 +1,7 @@
 # dotnet-webapi-ddd
 C# WebAPI implemented with .NET and DDD concepts.
 Learning mediator pattern
+
 # help needed
 I am trying to find a way to make a generic handler that could handle all the models and database operations, I am doing some researchs but did not found anything workable yet. All implementations of the mediator pattern that I found have one handler for each model.
 
