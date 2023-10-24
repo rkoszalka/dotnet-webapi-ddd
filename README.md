@@ -6,7 +6,7 @@ Learning mediator pattern
 I am trying to find a way to make a generic handler that could handle all the models and database operations, I am doing some researchs but did not found anything workable yet. All implementations of the mediator pattern that I found have one handler for each model.
 
 #. objective
-- learn mediator pattern and c# for team project called TripleX at Stefanini
+- learn mediator pattern and c#
 
 # to implement on handlers
 - http://wiki.c2.com/?NeedlessRepetition
